@@ -8,7 +8,6 @@ const Header = ({ scene, previous, navigation }) => {
   const theme = useTheme();
   const { setTheme, isThemeCustom } = React.useContext(PreferencesContext);
 
-  console.log("scene", JSON.stringify(scene, null, 2));
   return (
     <Appbar.Header
       theme={{

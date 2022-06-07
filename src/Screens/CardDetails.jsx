@@ -2,8 +2,8 @@ import * as React from "react";
 import { List, useTheme } from "react-native-paper";
 import { Image, StyleSheet } from "react-native";
 
-const DetailsScreen = (props) => {
-  const { subtitle, title, content, uri } = props?.route?.params;
+const CardDetails = ({ params }) => {
+  const { subtitle, title, content, uri } = params;
   const theme = useTheme();
   return (
     <List.Section theme={theme}>
@@ -23,7 +23,7 @@ const DetailsScreen = (props) => {
   );
 };
 
-export default DetailsScreen;
+export default CardDetails;
 
 const styles = StyleSheet.create({
   image: {

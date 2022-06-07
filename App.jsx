@@ -2,7 +2,8 @@ import * as React from "react";
 import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
-  NavigationContainer, useRoute,
+  NavigationContainer,
+  useRoute,
 } from "@react-navigation/native";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";

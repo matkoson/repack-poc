@@ -1,7 +1,8 @@
 import * as React from "react";
-import { FlatList, TouchableOpacity, StyleSheet } from "react-native";
-import { Card, Title, Paragraph, Surface } from "react-native-paper";
+import { FlatList, StyleSheet, TouchableOpacity } from "react-native";
+import { Card, Paragraph, Surface, Title } from "react-native-paper";
 import { Routes } from "../../routes";
+import { useNavigation } from "@react-navigation/native";
 
 const usplashImageList = [
   "https://images.unsplash.com/photo-1518873890627-d4b177c06e51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
@@ -11,11 +12,12 @@ const usplashImageList = [
   "https://images.unsplash.com/photo-1587588354737-4fb569ab499f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
   "https://images.unsplash.com/photo-1587580186465-663db0a4c222?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2091&q=80",
 ];
-const CardScreen = props => {
+const CardList = () => {
+  const navigation = useNavigation();
   const list = Array(6)
     .fill("")
     .map((item, index) => {
-      return (item = {
+      return ({
         title: `Card title #${index + 1}`,
         content: `Card content #${index + 1}`,
         subtitle: `Card subtitle #${index + 1}`,
@@ -32,7 +34,7 @@ const CardScreen = props => {
           return (
             <TouchableOpacity
               onPress={() =>
-                props.navigation?.push(Routes.details, {
+                navigation?.push(Routes.details, {
                   subtitle,
                   title,
                   content,
@@ -56,7 +58,7 @@ const CardScreen = props => {
   );
 };
 
-export default CardScreen;
+export default CardList;
 
 const styles = StyleSheet.create({
   card: {

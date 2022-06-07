@@ -1,7 +1,6 @@
 import * as React from "react";
-import { Appbar, TouchableRipple, Switch } from "react-native-paper";
-import { View, StyleSheet, Text } from "react-native";
-import { useTheme } from "react-native-paper";
+import { Appbar, Switch, TouchableRipple, useTheme } from "react-native-paper";
+import { StyleSheet, Text, View } from "react-native";
 import { PreferencesContext } from "../context/PreferencesContext";
 import ThemeMenu from "./ThemeMenu";
 
@@ -9,6 +8,7 @@ const Header = ({ scene, previous, navigation }) => {
   const theme = useTheme();
   const { setTheme, isThemeCustom } = React.useContext(PreferencesContext);
 
+  console.log("scene", JSON.stringify(scene, null, 2));
   return (
     <Appbar.Header
       theme={{
@@ -22,7 +22,7 @@ const Header = ({ scene, previous, navigation }) => {
         disabled={!previous}
         onPress={navigation.goBack}
       />
-      <Appbar.Content style={styles.appBarContent} title={scene.route?.name} />
+      <Appbar.Content style={styles.appBarContent} title={scene?.route?.name} />
       <View style={styles.themeSettingsContainer}>
         <ThemeMenu />
         <TouchableRipple onPress={() => setTheme()}>

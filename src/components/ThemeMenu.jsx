@@ -1,9 +1,9 @@
 import * as React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { Menu, Divider, Button } from "react-native-paper";
-import { generateLightTheme, generateDarkTheme } from "../utils";
+import { StyleSheet, View } from "react-native";
+import { Divider, Menu } from "react-native-paper";
+import { generateDarkTheme, generateLightTheme } from "../utils";
 import { PreferencesContext } from "../context/PreferencesContext";
-import { useTheme } from "react-native-paper";
+
 const customThemes = [
   {
     name: "some orange light theme",
@@ -47,34 +47,15 @@ const customThemes = [
 
 const ThemeMenu = () => {
   const [visible, setVisible] = React.useState(false);
-  const { setTheme, isThemeCustom } = React.useContext(PreferencesContext);
-  const theme = useTheme();
+  const { setTheme } = React.useContext(PreferencesContext);
 
   const closeMenu = () => setVisible(false);
-  const openMenu = () => setVisible(true);
 
   return (
     <View style={styles.container}>
       <Menu
         visible={visible}
         onDismiss={closeMenu}
-        anchor={
-          <Button
-            theme={{ fonts: theme.fonts }}
-            mode="outlined"
-            uppercase={false}
-            style={{ borderColor: theme.colors.onSurface }}
-            compact={true}
-            labelStyle={{
-              color: isThemeCustom
-                ? theme.colors.onSurface
-                : theme.colors.onSurface,
-            }}
-            onPress={openMenu}
-          >
-            <Text>Custom theme</Text>
-          </Button>
-        }
       >
         <Menu.Item
           onPress={() => {
@@ -98,7 +79,8 @@ const ThemeMenu = () => {
           title="Item 3"
         />
         <Divider />
-        <Menu.Item onPress={() => {}} title="Item 3" />
+        <Menu.Item onPress={() => {
+        }} title="Item 3" />
       </Menu>
     </View>
   );

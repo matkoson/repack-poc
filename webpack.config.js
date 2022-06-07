@@ -31,12 +31,12 @@ const ReactNative = require('@callstack/repack');
  * to specify your values, if the defaults don't suit your project.
  */
 
-const mode = ReactNative.getMode({ fallback: 'development' });
+const mode = ReactNative.getMode({fallback: 'development'});
 const dev = mode === 'development';
 const context = ReactNative.getContext();
 const entry = ReactNative.getEntry();
-const platform = ReactNative.getPlatform({ fallback: process.env.PLATFORM });
-const minimize = ReactNative.isMinimizeEnabled({ fallback: !dev });
+const platform = ReactNative.getPlatform({fallback: process.env.PLATFORM});
+const minimize = ReactNative.isMinimizeEnabled({fallback: !dev});
 const devServer = ReactNative.getDevServerOptions();
 const reactNativePath = ReactNative.getReactNativePath();
 
@@ -182,7 +182,7 @@ module.exports = {
        */
       {
         test: ReactNative.getAssetExtensionsRegExp(
-          ReactNative.ASSET_EXTENSIONS
+          ReactNative.ASSET_EXTENSIONS,
         ),
         use: {
           loader: '@callstack/repack/assets-loader',
